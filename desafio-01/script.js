@@ -24,21 +24,11 @@ function verificarCartao(input) {
 
     const somarTodos = somarNmrsComDoisDigitos.reduce((total, current) => total + current)
 
-    if(somarTodos === 0) return
+    if (somarTodos === 0) return
 
     const resultado = somarTodos % 10 === 0 ? true : false
 
-    let bandeira = ''
-
-    if (formatarInput[0] === '4') bandeira = 'visa'
-    if (formatarInput[0] === '5') bandeira = 'mastercard'
-    if (formatarInput.slice(0, 2) === '35') bandeira = 'jbc'
-    if (formatarInput.slice(0, 2) === '50') bandeira = 'aura'
-    ['34', '37'].forEach(e => { if (e === formatarInput.slice(0, 2)) bandeira = 'amex' })
-    ['38', '60'].forEach(e => { if (e === formatarInput.slice(0, 2)) bandeira = 'hipercard' })
-    ['301', '305', '36', '38'].forEach(e => { if (e === formatarInput.slice(0, 3) || e === formatarInput.slice(0, 2)) bandeira = 'diners' })
-    ['6011', '622', '64', '65'].forEach(e => { if (e === formatarInput.slice(0, 4) || e === formatarInput.slice(0, 3) || e === formatarInput.slice(0, 2)) bandeira = 'discover' })
-    ['636368', '636369', '438935', '504175', '451416', '636297', '5067', '4576', '4011', '506699'].forEach(e => { if (e === formatarInput.slice(0, 6) || e === formatarInput.slice(0, 4)) bandeira = 'elo' })
+    bandeira = pegarBandeira(formatarInput)
 
     if (resultado) {
         output.style.color = 'green'
@@ -49,4 +39,23 @@ function verificarCartao(input) {
     }
 
 
+}
+
+function pegarBandeira(formatarInput) {
+    let bandeira = ''
+    if (formatarInput[0] === '4') bandeira = 'visa'
+    if (formatarInput[0] === '5') bandeira = 'mastercard'
+    if (formatarInput.slice(0, 2) === '35') bandeira = 'jbc'
+    if (formatarInput.slice(0, 2) === '50') bandeira = 'aura'
+    const amex = ['34', '37']
+    const hipercard = ['38', '60']
+    const diners = ['301', '305', '36', '38']
+    const discover = ['6011', '622', '64', '65']
+    const elo = ['636368', '636369', '438935', '504175', '451416', '636297', '5067', '4576', '4011', '506699']
+    amex.forEach(e => { if (e === formatarInput.slice(0, 2)) bandeira = 'amex' })
+    hipercard.forEach(e => { if (e === formatarInput.slice(0, 2)) bandeira = 'hipercard' })
+    diners.forEach(e => { if (e === formatarInput.slice(0, 3) || e === formatarInput.slice(0, 2)) bandeira = 'diners' })
+    discover.forEach(e => { if (e === formatarInput.slice(0, 4) || e === formatarInput.slice(0, 3) || e === formatarInput.slice(0, 2)) bandeira = 'discover' })
+    elo.forEach(e => { if (e === formatarInput.slice(0, 6) || e === formatarInput.slice(0, 4)) bandeira = 'elo' })
+    return bandeira
 }

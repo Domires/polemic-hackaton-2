@@ -1,0 +1,22 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+div {
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    border: none;
+    border-radius: 4px;
+    padding: 3px 40px;
+    background-color: #4f4f4f;
+    color: #fff 
+}

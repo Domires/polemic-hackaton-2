@@ -1,0 +1,90 @@
+html,
+body {
+    margin          : 0;
+    padding         : 10px;
+    box-sizing      : border-box;
+    background-color: black;
+    font-family     : sans-serif;
+}
+
+h1 {
+    text-align: center;
+    color     : azure;
+}
+
+table {
+    background-color: aqua;
+    width           : 100%;
+    height          : 400px;
+}
+
+tr {
+    background-color: aquamarine;
+}
+
+td {
+    min-width: 100px;
+}
+
+button {
+    height             : 100%;
+    width              : 100%;
+    background-color   : aqua;
+    border             : none;
+    color              : black;
+    font-weight        : bolder;
+    outline            : none;
+    transition-duration: 0.3s;
+}
+
+td>button:hover {
+    background-color: #00ccaa;
+    cursor          : pointer;
+    transform       : scale(1.1);
+}
+
+button:hover {
+    background-color: #00ccaa;
+    cursor          : pointer;
+}
+
+input {
+    height    : 100%;
+    width     : 96%;
+    text-align: center;
+    border    : none;
+    font-size : 16px;
+}
+
+.container {
+    display       : flex;
+    flex-direction: column;
+    margin        : 10px 0;
+}
+
+.letras-container {
+    display       : flex;
+    flex-direction: row;
+    padding       : 10px 0;
+    align-self    : center;
+}
+
+.letras-container>div {
+    display         : flex;
+    align-items     : center;
+    justify-content : center;
+    background-color: #00ccaa;
+    border          : 2px solid aqua;
+    height          : 80px;
+    width           : 80px;
+    margin-right    : 10px;
+    font-size       : 30px;
+    text-transform  : uppercase;
+    font-weight     : bolder;
+}
+
+#btn-g {
+    background-color: #7fffd4;
+    border          : 2px solid aqua;
+    height          : 30px;
+}
